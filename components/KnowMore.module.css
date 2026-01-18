@@ -1,0 +1,85 @@
+.knowMoreSection {
+    background: var(--primary-brown);
+    padding: 8rem 0;
+}
+
+.contactCard {
+    background: var(--secondary-brown);
+    padding: 5rem 4rem;
+    border-radius: 40px;
+    box-shadow: var(--shadow-3d);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    text-align: center;
+}
+
+.heading {
+    color: var(--gold);
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    padding: 2rem;
+    background: rgba(26, 15, 10, 0.4);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    border: 1px solid transparent;
+}
+
+.contactItem:hover {
+    background: var(--primary-brown);
+    border-color: var(--gold);
+    transform: translateY(-10px);
+    box-shadow: var(--glow-gold);
+}
+
+.iconBox {
+    width: 60px;
+    height: 60px;
+    background: var(--gold);
+    color: var(--primary-brown);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.infoBox {
+    text-align: left;
+}
+
+.infoBox span {
+    display: block;
+    color: var(--gold);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+}
+
+.infoBox p {
+    color: var(--cream);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .contactCard {
+        padding: 3rem 1.5rem;
+    }
+}

@@ -1,0 +1,188 @@
+.footer {
+    background: linear-gradient(to bottom, var(--secondary-brown), var(--primary-brown));
+    padding: 6rem 0 2rem;
+    border-top: 4px solid var(--gold);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: repeating-linear-gradient(45deg, var(--gold), var(--gold) 10px, transparent 10px, transparent 20px);
+    opacity: 0.3;
+}
+
+.footerGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footerLogo {
+    color: var(--gold);
+    font-size: 3rem;
+    letter-spacing: 5px;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tagline {
+    font-style: italic;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: var(--cream);
+    opacity: 0.9;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.socialIcon {
+    color: var(--primary-brown);
+    background: var(--gold);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: var(--shadow-md);
+}
+
+.socialIcon:hover {
+    transform: translateY(-8px) rotate(360deg);
+    background: var(--cream);
+    color: var(--primary-brown);
+    box-shadow: var(--shadow-lg), 0 0 20px var(--gold);
+}
+
+.tooltip {
+    position: absolute;
+    bottom: -40px;
+    background: var(--gold);
+    color: var(--primary-brown);
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.socialIcon:hover .tooltip {
+    opacity: 1;
+    bottom: -30px;
+}
+
+.linkCol h4,
+.certCol h4 {
+    color: var(--gold);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.4rem;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.linkCol ul {
+    list-style: none;
+}
+
+.linkCol ul li {
+    margin-bottom: 1rem;
+}
+
+.linkCol ul li a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.linkCol ul li a:hover {
+    color: var(--gold);
+    transform: translateX(10px);
+}
+
+.certBox {
+    padding: 1.5rem;
+    background: rgba(255, 248, 231, 0.05);
+    border-radius: 15px;
+    border: 1px solid var(--gold);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.certBox:hover {
+    transform: scale(1.05);
+    background: rgba(255, 248, 231, 0.1);
+}
+
+.certBox p {
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.certBox span {
+    font-size: 0.9rem;
+    color: var(--cream);
+    letter-spacing: 1px;
+}
+
+.bottomBar {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 248, 231, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.highlights {
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+
+@media (max-width: 991px) {
+    .footerGrid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .socialLinks {
+        justify-content: center;
+    }
+
+    .linkCol ul li a:hover {
+        transform: translateX(0);
+        color: var(--gold);
+    }
+
+    .bottomBar {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
