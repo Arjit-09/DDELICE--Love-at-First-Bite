@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DDelice — Love at First Bite
 
-## Getting Started
+A responsive Next.js bakery storefront with an editorial ivory, espresso and copper design, local product photography, a locally hosted baking video, scroll reveals and motion-sensitive fallbacks.
 
-First, run the development server:
+## Development
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Production
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```sh
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Deploy using a Next.js-compatible Node host. No API keys or database are required.
 
-## Learn More
+## Customer journey
 
-To learn more about Next.js, take a look at the following resources:
+- Filter eight bakes by category.
+- Add products to the enquiry bag and adjust quantities.
+- Send the itemised enquiry to the existing bakery WhatsApp number.
+- Ask about personalised hampers, delivery and allergies.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The bag is session UI state, not an order or payment system. Prices, delivery and availability are confirmed by the bakery through WhatsApp. No customer data is collected by this site.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Content and assets
 
-## Deploy on Vercel
+The catalogue, story, contact details and FSSAI number come from the original repository. Confirm current business details and the image menu with the client before launch. Product data and FAQs are in `app/page.js`; theme and responsive styles are in `app/globals.css`; page metadata is in `app/layout.js`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Existing images are in `public/images`. Stock video source and attribution are in `public/videos/ATTRIBUTION.md`; the footage illustrates baking and is not a recording of the client's kitchen. Replace it with client footage when available. Video falls back to the product photograph if playback is unavailable and does not autoplay for reduced-motion or data-saving preferences. Both background video and scrolling announcement have pause controls.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Google Fonts are loaded with `display=swap` and local serif/sans-serif fallbacks. Next Image supplies responsive image optimisation. Keyboard-accessible navigation, a native dialog, labelled controls, a skip link and reduced-motion styling are included.
+
+## Expanded experience
+
+`components/BakeryExperiences.js` contains the mood-based flavour finder, interactive craft story, celebration planner and expandable baker's guides. Styling is in `app/experiences.css`.
+
+The celebration planner validates required details and rejects today/past dates using the bakery's India timezone. It opens an itemised WhatsApp draft; no form information is sent to an application server or stored. The flavour finder adds real catalogue items to the same enquiry bag.
+
+The editorial image is AI-generated and optimised to WebP. See `docs/IMAGE-ART-DIRECTION.md` for the final prompt and asset path. It illustrates the brand's mood; product listings retain the supplied catalogue imagery. The new favicon and Bakery structured data identify the correct brand without adding unverified ratings, prices or opening hours.
+
+## Verification completed
+
+- Production build (`npm run build`).
+- Chromium checks for catalogue filtering, enquiry-bag quantities, WhatsApp itemisation and keyboard dismissal of the bag.
+- Background-video loading, pause controls, reduced-motion preferences and mobile navigation.
+- Mood matching and add-to-bag integration; craft-panel image transitions.
+- Celebration form required fields, past-date rejection and the complete WhatsApp brief (tested with a stub; no message sent).
+- Expandable pairing guides, image loading and absence of browser runtime errors.
+- Horizontal-overflow checks at 360, 390, 650, 768, 820, 1024 and 1440 pixels; desktop and mobile visual review.
+
+These checks verify the local production build. Hosting, client approval of business details, and real-world WhatsApp fulfilment remain deployment/operational responsibilities.
